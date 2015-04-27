@@ -27,11 +27,14 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kVa-FA-LGv"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-2W-tMj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-2W-tMj">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                                 <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="167" y="367" width="67" height="14"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a05-Qo-q9L">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -144,15 +147,26 @@
                                     <action selector="playChipmunkAudio:" destination="Ela-Fd-aJv" eventType="touchUpInside" id="Wxr-4w-BMQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fh1-Pm-VhA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="vader">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVaderAudio:" destination="Ela-Fd-aJv" eventType="touchUpInside" id="GbZ-ON-dGJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.47450980392156861" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RP8-EE-5ey" firstAttribute="top" secondItem="gVM-3M-vjb" secondAttribute="bottom" constant="50" id="1uB-MR-YHG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fh1-Pm-VhA" secondAttribute="trailing" constant="30" id="5gc-ty-RmN"/>
                             <constraint firstItem="hsG-ZT-5C6" firstAttribute="leading" secondItem="tNm-FV-m8f" secondAttribute="leadingMargin" constant="30" id="9PG-wI-frL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RP8-EE-5ey" secondAttribute="trailing" constant="30" id="Eaw-Um-eRe"/>
                             <constraint firstItem="dPG-Ro-g0C" firstAttribute="top" secondItem="gVM-3M-vjb" secondAttribute="bottom" constant="50" id="HOM-Ed-82T"/>
                             <constraint firstItem="OJb-At-00v" firstAttribute="top" secondItem="Zf8-30-eDM" secondAttribute="bottom" constant="30" id="MjU-hZ-5aq"/>
                             <constraint firstItem="hsG-ZT-5C6" firstAttribute="top" secondItem="dPG-Ro-g0C" secondAttribute="bottom" constant="96" id="THC-cZ-JXr"/>
+                            <constraint firstItem="fh1-Pm-VhA" firstAttribute="top" secondItem="RP8-EE-5ey" secondAttribute="bottom" constant="96" id="TZn-JS-RcN"/>
                             <constraint firstItem="dPG-Ro-g0C" firstAttribute="leading" secondItem="tNm-FV-m8f" secondAttribute="leadingMargin" constant="30" id="ibq-9U-1UC"/>
                             <constraint firstAttribute="centerX" secondItem="Zf8-30-eDM" secondAttribute="centerX" id="u3z-my-eOS"/>
                         </constraints>
@@ -162,16 +176,19 @@
                                 <exclude reference="RP8-EE-5ey"/>
                                 <exclude reference="Zf8-30-eDM"/>
                                 <exclude reference="hsG-ZT-5C6"/>
+                                <exclude reference="fh1-Pm-VhA"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HOM-Ed-82T"/>
-                                <exclude reference="ibq-9U-1UC"/>
+                                <exclude reference="MjU-hZ-5aq"/>
                                 <exclude reference="1uB-MR-YHG"/>
                                 <exclude reference="Eaw-Um-eRe"/>
+                                <exclude reference="u3z-my-eOS"/>
+                                <exclude reference="HOM-Ed-82T"/>
+                                <exclude reference="ibq-9U-1UC"/>
+                                <exclude reference="5gc-ty-RmN"/>
+                                <exclude reference="TZn-JS-RcN"/>
                                 <exclude reference="9PG-wI-frL"/>
                                 <exclude reference="THC-cZ-JXr"/>
-                                <exclude reference="u3z-my-eOS"/>
-                                <exclude reference="MjU-hZ-5aq"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -180,16 +197,19 @@
                                 <include reference="RP8-EE-5ey"/>
                                 <include reference="Zf8-30-eDM"/>
                                 <include reference="hsG-ZT-5C6"/>
+                                <include reference="fh1-Pm-VhA"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HOM-Ed-82T"/>
-                                <include reference="ibq-9U-1UC"/>
+                                <include reference="MjU-hZ-5aq"/>
                                 <include reference="1uB-MR-YHG"/>
                                 <include reference="Eaw-Um-eRe"/>
+                                <include reference="u3z-my-eOS"/>
+                                <include reference="HOM-Ed-82T"/>
+                                <include reference="ibq-9U-1UC"/>
+                                <include reference="5gc-ty-RmN"/>
+                                <include reference="TZn-JS-RcN"/>
                                 <include reference="9PG-wI-frL"/>
                                 <include reference="THC-cZ-JXr"/>
-                                <include reference="u3z-my-eOS"/>
-                                <include reference="MjU-hZ-5aq"/>
                             </mask>
                         </variation>
                     </view>
@@ -223,6 +243,7 @@
         <image name="microphone" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
         <image name="stop" width="50" height="50"/>
+        <image name="vader" width="100" height="100"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

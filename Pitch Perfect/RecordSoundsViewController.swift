@@ -29,25 +29,29 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // reset the app
         stopButton.hidden = true
         microphoneBtn.enabled = true
+        recordingInProgress.text = "Tap to record"
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if(flag) {
-            recordedAudio = RecordedAudio()
-            recordedAudio.filePathUrl = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent
+            // if the recording was successful segue to the playSoundsViewController
+            recordedAudio = RecordedAudio(title: recorder.url.lastPathComponent!,filePathUrl: recorder.url)
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         } else {
+            // if the recording was not successful reset the app
             println("Recording was not successful")
             microphoneBtn.enabled = true
             stopButton.hidden = true
+            recordingInProgress.text = "Tap to record"
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "stopRecording") {
+            // setup the segue to send the RecordedAudio to playSoundsVC
             let playSoundsVC:PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
             let data = sender as! RecordedAudio
             playSoundsVC.receivedAudio = data
@@ -55,7 +59,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: UIButton) {
-        recordingInProgress.hidden = false
+        recordingInProgress.text = "recording in progress"
         stopButton.hidden = false
         microphoneBtn.enabled = false
         
@@ -82,7 +86,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecording(sender: UIButton) {
-        recordingInProgress.hidden = true
+        // reset the the controller when stop is hit and send the audio
+        recordingInProgress.text = "Tap to record"
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
