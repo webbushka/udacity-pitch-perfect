@@ -170,6 +170,7 @@
 				TargetAttributes = {
 					543FDC9F1AAE499C008F15F2 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = UEGP9P4EPA;
 					};
 					543FDCB41AAE499C008F15F2 = {
 						CreatedOnToolsVersion = 6.1.1;
